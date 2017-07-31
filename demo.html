@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Aspect Ratio Plugin Demo</title>
+
+        <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+
+        <script src="com.abcruz.jquery.aspect-ratio.js"></script>
+
+        <script>
+            $(document).ready( function() {
+                // Provide some overrides to the default settings.
+                var options = {
+                    'aspect': 1.7777,
+                    'css': {
+                        'background': '#DCE'
+                    },
+                    /* Other options:
+                       base_width - absolute width or percentage of parent width
+                                    (0.0 - 1.0 only)
+                       trim       - pixels to trim from calculated with
+                                    (for margins, etc.)
+                    */
+                }
+                // Resize when the page loads.
+                $('#demo-div').set_aspect_ratio(options);
+                
+                // Resize when the window dimensions change.
+                $(window).resize( function() {
+                    $('#demo-div').set_aspect_ratio(options);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="demo-div"></div>
+    </body>
+</html>
